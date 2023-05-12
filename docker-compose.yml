@@ -1,0 +1,48 @@
+services:
+
+  client:
+    build:
+      dockerfile: Dockerfile
+      context: .
+      target: development
+    volumes:
+      - ./client:/usr/app/MyFullstackApp/client
+      - /usr/app/MyFullstackApp/client/node_modules
+    working_dir: /usr/app/MyFullstackApp/client
+    command: npm start
+    ports:
+      - 3000:3000
+    depends_on:
+      - api
+
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: .
+      target: development
+    volumes:
+      - ./API:/usr/app/MyFullstackApp/API
+      - /usr/app/MyFullstackApp/API/node_modules
+    working_dir: /usr/app/MyFullstackApp/API
+    command: npm run start:dev
+    ports:
+      - 3005:3005
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres
+    env_file:
+      - ./API/.env
+    restart: always
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+      
+volumes:
+  postgres:

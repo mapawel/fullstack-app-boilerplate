@@ -1,0 +1,23 @@
+services:
+
+  app:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - 80:3005
+    depends_on:
+      - postgres
+    env_file:
+      - ./API/.env
+
+  postgres:
+    image: postgres
+    env_file:
+      - ./API/.env
+    restart: always
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+volumes:
+  postgres:

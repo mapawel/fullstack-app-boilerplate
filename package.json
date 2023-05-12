@@ -1,0 +1,31 @@
+{
+    "name": "my-fullstack-app",
+    "version": "0.0.1",
+    "description": "a fullstack app boilerplate built with Nestjs for API and React for frontend",
+    "author": "mapawel www.devdefer.com",
+    "private": false,
+    "license": "MIT",
+    "scripts": {
+        "all-deps-install": "npm ci && cd client && npm ci && cd ../API && npm ci",
+        "format": "prettier --write \"API/src/**/*.ts*\" \"client/src/**/*.ts*\"",
+        "lint": "eslint \"{API,src,apps,libs,test}/**/*.ts\" \"{client,src,apps,libs,test}/**/*.ts*\" --fix",
+        "test": "cd client && npm run test && cd ../API && npm run test",
+        "prepare": "husky install"
+    },
+    "devDependencies": {
+        "@commitlint/config-conventional": "^17.6.3",
+        "@types/node": "18.11.18",
+        "@typescript-eslint/eslint-plugin": "^5.0.0",
+        "@typescript-eslint/parser": "^5.0.0",
+        "eslint": "^8.0.1",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "husky": "^8.0.0",
+        "lint-staged": "^12.5.0",
+        "npm": "^9.6.5",
+        "prettier": "^2.3.2",
+        "source-map-support": "^0.5.20",
+        "tsconfig-paths": "4.1.1",
+        "typescript": "~4.7.4"
+    }
+}
