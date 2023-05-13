@@ -21,6 +21,7 @@ services:
       context: .
       target: development
     volumes:
+      - ./client/build:/usr/app/MyFullstackApp/client/build
       - ./API:/usr/app/MyFullstackApp/API
       - /usr/app/MyFullstackApp/API/node_modules
     working_dir: /usr/app/MyFullstackApp/API
