@@ -14,7 +14,7 @@
 
 ### How to use:
 1. Clone this repo.
-2. In the root project folder (most outer one) run npm command ```npm run all-deps-install``` to install all dependencies in all folders necessary.
+2. In the root project folder (most outer one) run npm command ```npm run ecosystem-init``` to install all dependencies in all folders necessary and install husky.
 3. **Now you need to have DOCKER on your machine installed, then to run app for development: ```docker-compose up -d```.**
 4. Now the app is listening in the watch mode on ports 3005 (API), 3000 (React SPA) and 8080 (Adminer).
 5. To stop app: ```docker compose down```.
@@ -56,7 +56,7 @@ In a production mode, the app construction is based on Nestjs API which is backe
 ### React:
 - clead CRA project with Typescript +
 - some starting files cleaned +
-- changes folders structure
+- changes folders structure +
+- craco installed to enable absolute imports from src as @ +
 - and the app is waiting for your changes.
 
----
